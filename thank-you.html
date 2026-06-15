@@ -9,86 +9,86 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    :root {
-      --c-primary: #001AB3;
-      --c-accent: #204ce5;
-      --c-navy: #112337;
-      --c-bg-deep: #0a1530;
-      --c-blue-soft: #527EFF;
-      --c-success: #00875a;
-      --font-sans: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: var(--font-sans);
-      background: radial-gradient(120% 120% at 50% 0%, #16264a 0%, var(--c-bg-deep) 55%, #050b1c 100%);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .card {
-      width: 100%;
-      max-width: 560px;
-      text-align: center;
-    }
-    .logo { height: 34px; margin-bottom: 40px; }
-    .check {
-      width: 84px; height: 84px;
-      margin: 0 auto 28px;
+    .ty { min-height: calc(100vh - 64px); display: flex; align-items: center; }
+    .ty__inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .ty__check {
+      width: 88px; height: 88px; margin: 0 auto 32px;
       border-radius: 50%;
-      background: rgba(0, 135, 90, 0.15);
-      border: 1.5px solid rgba(0, 135, 90, 0.5);
+      background: rgba(0, 135, 90, 0.10);
+      border: 1.5px solid rgba(0, 135, 90, 0.45);
       display: flex; align-items: center; justify-content: center;
-      animation: pop .5s cubic-bezier(.2,.9,.3,1.4) both;
+      animation: tyPop .5s cubic-bezier(.2,.9,.3,1.4) both;
     }
-    @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .check svg { width: 40px; height: 40px; stroke: #3ddc97; }
-    h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
-    p { font-size: 1.05rem; line-height: 1.6; color: #c2cbe0; margin-bottom: 12px; }
-    p strong { color: #fff; font-weight: 600; }
-    .meta { font-size: .92rem; color: #8a95b0; margin-top: 8px; }
-    .actions { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 26px; border-radius: 10px;
-      font-family: inherit; font-size: 1rem; font-weight: 600;
-      text-decoration: none; cursor: pointer; transition: transform .15s ease, opacity .15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn--primary { background: var(--c-accent); color: #fff; box-shadow: 0 10px 30px rgba(32,76,229,.35); }
-    .btn--ghost { background: transparent; color: #c2cbe0; border: 1px solid rgba(255,255,255,.18); }
-    .footer { margin-top: 48px; font-size: .82rem; color: #6b7593; }
-    .footer a { color: #8fa2d8; text-decoration: none; }
+    @keyframes tyPop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .ty__check svg { width: 42px; height: 42px; stroke: var(--c-success, #00875a); }
+    .ty__lead { font-size: 1.15rem; line-height: 1.6; color: var(--c-text-muted, #585e6a); margin: 0 0 10px; }
+    .ty__lead strong { color: var(--c-text, #112337); }
+    .ty__actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   </style>
 </head>
 <body>
-  <main class="card">
-    <img src="assets/images/logo-footer.svg" alt="BamBlue — shaping life." class="logo" />
-
-    <div class="check" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-    </div>
-
-    <h1>Pedido recebido. Obrigado!</h1>
-    <p>Recebemos o seu pedido de <strong>diagnóstico técnico gratuito</strong>.</p>
-    <p class="meta">A nossa equipa entra em contacto consigo nas próximas <strong>24 horas úteis</strong> para agendar a avaliação.</p>
-
-    <div class="actions">
-      <a href="/" class="btn btn--primary">Voltar ao site</a>
-      <a href="tel:+351234099178" class="btn btn--ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Falar com a equipa
+  <!-- ===== TOPBAR ===== -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+      <a href="/" class="topbar__brand" aria-label="BamBlue">
+        <img src="assets/images/logo-footer.svg" alt="BamBlue — shaping life." class="topbar__logo" />
       </a>
+      <nav class="topbar__meta" aria-label="Ações rápidas">
+        <a href="tel:+351234099178" class="topbar__phone" aria-label="Ligar para a BamBlue">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Falar com a equipa</span>
+        </a>
+        <a href="/" class="btn btn--primary btn--sm">Voltar ao site</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="footer">
-      BamBlue · Automação &amp; Robótica Industrial · <a href="https://bamblue.pt" target="_blank" rel="noopener">bamblue.pt</a>
+  <!-- ===== THANK YOU ===== -->
+  <section class="section section--light ty" aria-labelledby="ty-title">
+    <div class="container">
+      <div class="ty__inner">
+
+        <div class="section-header section-header--wm">
+          <span class="section-title-bg" aria-hidden="true">OBRIGADO</span>
+          <div class="ty__check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h1 class="section-title section-title--dark" id="ty-title">Pedido recebido. Obrigado!</h1>
+        </div>
+
+        <p class="ty__lead">Recebemos o seu pedido de <strong>diagnóstico técnico gratuito</strong>.</p>
+        <p class="ty__lead">A nossa equipa entra em contacto consigo nas próximas <strong>24 horas úteis</strong> para agendar a avaliação.</p>
+
+        <div class="ty__actions">
+          <a href="/" class="btn btn--primary btn--lg">Voltar ao site</a>
+          <a href="tel:+351234099178" class="btn btn--outline btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Falar com a equipa
+          </a>
+        </div>
+
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Rodapé BamBlue">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/images/logo-footer.svg" alt="BamBlue" class="footer__logo" loading="lazy" />
+        <p class="footer__tagline">shaping life.</p>
+        <p class="footer__copy">© <span id="year"></span> BamBlue. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer__contact-col">
+        <p class="footer__contact-title">Contacto</p>
+        <a href="mailto:info@bamblue.pt" class="footer__contact-link">info@bamblue.pt</a>
+        <a href="tel:+351234099178" class="footer__contact-link">+351 234 099 178</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
