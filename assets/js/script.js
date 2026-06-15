@@ -112,13 +112,13 @@
     var action = form.getAttribute('action');
     if (!action || action.indexOf('REPLACE_WITH_WEBHOOK_URL') !== -1) {
       console.warn('[BAMBLUE LP] form action não configurado, dados:', data);
-      window.setTimeout(function () { window.location.href = 'thank-you.html'; }, 800);
+      window.setTimeout(function () { window.location.href = '/thank-you.html'; }, 800);
       return;
     }
 
     fetch(action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     })
       .then(function (res) {
@@ -130,7 +130,26 @@
           setor: data.setor,
           n_trabalhadores: data.n_trabalhadores || ''
         });
-        window.location.href = 'thank-you.html';
+
+        // Evento personalizado GTM
+        var redirected = false;
+        function goThankYou() {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = '/thank-you.html';
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_lp_bamblue',
+          form_id: 'leadForm',
+          setor: data.setor,
+          cargo: data.cargo,
+          n_trabalhadores: data.n_trabalhadores || '',
+          eventCallback: goThankYou,
+          eventTimeout: 1500
+        });
+        // Fallback caso o GTM não responda (ex.: bloqueador de anúncios)
+        window.setTimeout(goThankYou, 1600);
       })
       .catch(function (err) {
         console.error('[BAMBLUE LP] erro ao submeter:', err);
